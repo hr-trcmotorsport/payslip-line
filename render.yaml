@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: payslip-line-webhook
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements-webhook.txt
+    startCommand: uvicorn webhook.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.7
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_KEY
+        sync: false
+      - key: LINE_CHANNEL_SECRET
+        sync: false
+      - key: LINE_CHANNEL_ACCESS_TOKEN
+        sync: false
+      - key: ENCRYPTION_KEY
+        sync: false
+      - key: PEPPER
+        sync: false
