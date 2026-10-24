@@ -1,6 +1,0 @@
-fastapi>=0.110
-uvicorn>=0.29
-requests>=2.31
-supabase>=2.4
-cryptography>=42
-pypdf>=4.2
